@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>club.song</groupId>
+    <artifactId>ch2-1</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <!--
+        pom 项目里没有java代码，也不执行任何代码，只是为了聚合工程或传递依赖用的。
+    -->
+    <packaging>pom</packaging>
+
+    <parent>
+        <groupId>club.song</groupId>
+        <artifactId>springcloud-notes</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <modules>
+        <module>eureka-server</module>
+        <module>eureka-client</module>
+    </modules>
+
+    <properties>
+        <spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
+        <spring-boot.version>2.0.3.RELEASE</spring-boot.version>
+    </properties>
+
+    <!--
+        作用： 让子工程继承配置, 但是不下载依赖jar包, 详细如下
+        1：子模块如果需要依赖, 不用输入版本号和依赖范围等, 有groupId、artifactId就可以, 继承了版本号,依赖范围等.
+        2：子模块依赖的时候, 才会去下载
+        3：好处是方便管理依赖版本号 （相比如dependencies更灵活）
+    -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <!-- type是依赖的类型, 默认是jar 同packageing一致 -->
+                <type>pom</type>
+                <!--
+                    在dependencyManagement中, 才会有效果, 使用该范围通常是指向一个pom
+                    目的：将目标中的dependencyManagement配置导入并合并到当前pom的dependencyManagement元素中
+                -->
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-parent</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <!--
+        作用：导入依赖, 和当前项目子模块共有此依赖
+        1：子模块自动继承 ( 相比如dependencyManagement 不用配置groupId、artifactId )
+        2：缺点：有些子模块不需要父工程中某些依赖, 但是还是会被动继承。（不够灵活）
+    -->
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>

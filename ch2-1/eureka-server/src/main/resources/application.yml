@@ -1,0 +1,14 @@
+server:
+  port: 8761
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    registerWithEureka: false # 服务本身是否注册到eureka
+    fetchRegistry: false # 指示此客户端是否应该从EURKA服务器获取EURKA注册表信息。
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  server:
+    waitTimeInMsWhenSyncEmpty: 0 # 在Eureka服务器获取不到集群里对等服务器上的实例时，需要等待的时间，单位为毫秒
+    enableSelfPreservation: false # 是否开启自我保护
