@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: config-server
+  profiles:
+    active: native # 使用spring.profiles.active=native就会自动搜索resources目录下的文件
+server:
+  port: 8888

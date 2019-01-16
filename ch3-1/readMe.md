@@ -91,4 +91,14 @@
 - maven三大生命周期 clean default site
     - clean     清理上次编译后的文件夹
     - default   真正构建时候的所有步骤 ( validate -> deploy )
-    - site      建立和发布项目站点 
+    - site      建立和发布项目站点
+
+- ch3-1 重新用回了 parent标签 因为比较简洁  
+## 关于springcloud
+```
+依赖介绍：
+    config server : spring-cloud-config-server
+    config client : spring-cloud-starter-config
+   
+    监控系统健康情况的工具 ：spring-boot-starter-actuator
+```

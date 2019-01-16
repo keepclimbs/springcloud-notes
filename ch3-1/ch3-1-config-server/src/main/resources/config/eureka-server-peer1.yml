@@ -1,0 +1,18 @@
+server:
+  port: 8761
+
+
+eureka:
+  instance:
+    hostname: localhost
+    preferIpAddress: true  # 点击注册服务的时候跳转的新页面 显示ip  默认显示localhost
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/ # one eureka server
+      #      defaultZone: http://localhost:8762/eureka/ # two eureka server
+      #      defaultZone: http://localhost:8762/eureka/,http://localhost:8763/eureka/ # three eureka server
+  server:
+    waitTimeInMsWhenSyncEmpty: 0 # 在Eureka服务器获取不到集群里对等服务器上的实例时，需要等待的时间，单位为毫秒
+    enableSelfPreservation: false
