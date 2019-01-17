@@ -12,4 +12,13 @@
     <artifactId>ch3-5-2-eureka-server</artifactId>
 
 
+
+    <dependencies>
+        <!-- eurekaServer 依赖 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+        </dependency>
+    </dependencies>
+
 </project>
