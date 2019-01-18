@@ -1,4 +1,11 @@
 # 这一章学到了什么
+##代码实现ch2-1 
+```
+功能：
+    (springcloud的 quick-start)
+操作步骤：
+    访问 http://localhost:8761 能展示注册的实例
+```
 ## 关于maven
 - 学习到了maven配置dependencies和dependencyManagement的区别
     
