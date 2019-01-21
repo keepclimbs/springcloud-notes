@@ -4,7 +4,7 @@
 ```
 功能：
 操作步骤：
-- 1、生成server端证书, 使用Teriminal切换到server的resource目录（例:G:\git_code\springcloud-notes\ch3-5-5\ch355-eureka-server）
+- 1、生成server端证书, 使用Teriminal切换到项目目录 下列命令都在同一目录执行
     - 执行命令：
         1) 生成证书： keytool -genkeypair -alias serverSsl -storetype PKCS12 -keyalg RSA -keysize 2048 -keystore serverSsl.p12 -validity 3650
         2) 导出证书： keytool -export -alias serverSsl -file serverSsl.crt --keystore serverSsl.p12
@@ -17,8 +17,8 @@
     - server端执行命令：keytool -import -alias clientSsl -file clientSsl.crt -keystore serverSsl.p12 (使server信任client)
     - client端执行命令：keytool -import -alias serverSsl -file serverSsl.crt -keystore clientSsl.p12 (使client信任server)
 - 4 拷贝到resource目录中
-    - 给ch355-eureka-server目录下的 serverSsl.p12, serverSsl.crt, clientSsl.crt分别拷贝到resource目录中
-    - 给ch355-eureka-server目录下的 clienteSsl.p12, clientSsl.crt, serverSsl.crt分别拷贝到resource目录中
+    - 给serverSsl.p12分别拷贝到ch355-eureka-server的resource目录中
+    - 给clienteSsl.p12分别拷贝到ch355-eureka-client的resource目录中
 ```
 
 
