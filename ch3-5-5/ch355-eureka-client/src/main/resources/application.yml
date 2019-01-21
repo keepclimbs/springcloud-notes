@@ -9,7 +9,7 @@ eureka:
   client:
     securePortEnabled: true
     ssl:
-      key-store: classpath:clientSsl.p12
+      key-store: clientSsl.p12
       key-store-password: client
     serviceUrl:
       defaultZone: https://localhost:8761/eureka/

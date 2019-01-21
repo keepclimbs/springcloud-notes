@@ -9,13 +9,14 @@ import org.springframework.context.annotation.Profile;
 import org.apache.http.ssl.SSLContextBuilder;
 import javax.net.ssl.SSLContext;
 import java.io.IOException;
+import java.net.URL;
 import java.security.KeyManagementException;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.CertificateException;
 
-
-@Profile({"https"})
+// 这个是https环境 才会激活
+// @Profile({"https"})
 @Configuration
 public class EurekaHttpsClientConfig {
 
@@ -29,11 +30,8 @@ public class EurekaHttpsClientConfig {
     public DiscoveryClient.DiscoveryClientOptionalArgs discoveryClientOptionalArgs() throws CertificateException, NoSuchAlgorithmException, KeyStoreException, IOException, KeyManagementException {
         EurekaJerseyClientImpl.EurekaJerseyClientBuilder builder = new EurekaJerseyClientImpl.EurekaJerseyClientBuilder();
         builder.withClientName("eureka-https-client");
-        SSLContext sslContext = new SSLContextBuilder()
-                .loadTrustMaterial(
-                        this.getClass().getClassLoader().getResource(keyStoreFileName),keyStorePassword.toCharArray()
-                )
-                .build();
+        URL url = this.getClass().getClassLoader().getResource(keyStoreFileName);
+        SSLContext sslContext = new SSLContextBuilder().loadTrustMaterial(url,keyStorePassword.toCharArray()).build();
         builder.withCustomSSL(sslContext);
 
         builder.withMaxTotalConnections(10);
