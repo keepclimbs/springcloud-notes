@@ -1,0 +1,29 @@
+server:
+  port: 8011
+spring:
+  application:
+    name: ch412-feign-gzip
+
+logging:
+     level:
+       com.springcloud.service.HelloFeignService: debug
+
+feign:
+    compression:
+        request:
+            enabled: true
+            mime-types: text/xml,application/xml,application/json # 配置压缩支持的MIME TYPE
+            min-request-size: 2048  # 配置压缩数据大小的下限
+        response:
+            enabled: true # 配置响应GZIP压缩
+
+    client:
+      config:                # 配置feign属性 和 @FeignClient 注解功能相同
+        default:
+          connecTimeout: 1 # 连接超时
+          readTimeout: 1   # 读超时
+          loggerLevel: basic
+
+
+    httpclient: # 启动时 开启 apache 替换 默认的http-client
+      enabled: true

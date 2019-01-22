@@ -1,0 +1,10 @@
+server:
+  port: 8010
+spring:
+  application:
+    name: ch412-feign-helloword
+
+logging:
+  level:
+    com.springcloud.service.HelloFeignService: debug
+
