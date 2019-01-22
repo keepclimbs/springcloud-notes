@@ -24,7 +24,7 @@
 ![image](https://github.com/keepclimbs/springcloud-notes/blob/master/img/353-1.png)
 
 - 疑问?
-    - 1、我不明白为何要重新new一个EurekaServerConfigBean, 因为这个对象有很多属性使用new 就会有很多属性没有set 或者说在什么时候注入的 (配置类路径：com\springcloud\config\RegionConfig.java)
+    - 1、我不明白为何要重新new一个EurekaServerConfigBean, 因为这个对象有很多属性使用new 就会有很多属性没有set 或者说在什么时候set 我想打断点 (配置类路径：com\springcloud\config\RegionConfig.java)
     - 2、如图
 ![image](https://github.com/keepclimbs/springcloud-notes/blob/master/img/353-2.png)    
     - 3、region有啥用  我感觉用zone就可以了呀   全世界各地都有机房  干嘛还需要多个region
