@@ -51,3 +51,11 @@
 ```
 # 问题 
 - ch412-feign-gzip的application.yml中设置了 超时时间 但是实际运行, 没有生效
+- 使用apache的httpclient 替换feign默认的 httpclient 的时候  （书上例子）：为啥要导入这个依赖
+```
+        <dependency>
+            <groupId>com.netflix.feign</groupId>
+            <artifactId>feign-httpclient</artifactId>
+            <version>8.17.0</version>
+        </dependency>
+```

@@ -6,4 +6,4 @@
 - 第五学 http basic 认证  [笔记](https://github.com/keepclimbs/springcloud-notes/tree/master/ch3-5-4/readMe.md)
 - 第六学 启用https  [笔记](https://github.com/keepclimbs/springcloud-notes/tree/master/ch3-5-5/readMe.md)
 ## 3.6.2和 3.6.3暂不练习 以后再练习
-- 第七学 oepn-feign quick-start [笔记](https://github.com/keepclimbs/springcloud-notes/tree/master/ch4-1-2/readMe.md)
+- 第七学 oepn-feign quick-start [笔记(有两个疑问)](https://github.com/keepclimbs/springcloud-notes/tree/master/ch4-1-2/readMe.md)
