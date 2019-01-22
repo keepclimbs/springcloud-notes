@@ -24,7 +24,7 @@
 ![image](https://github.com/keepclimbs/springcloud-notes/blob/master/img/353-1.png)
 
 - 疑问?
-    - 1、这个配置类 我不明白为何要重新new一个对象, 因为这个对象有很多属性 (com\springcloud\config\RegionConfig.java)
+    - 1、这个配置类 我不明白为何要重新new一个对象, 因为这个EurekaServerConfigBean对象有很多属性 (配置类路径：com\springcloud\config\RegionConfig.java)
     - 2、如图
 ![image](https://github.com/keepclimbs/springcloud-notes/blob/master/img/353-2.png)    
     - 3、region有啥用  我感觉用zone就可以了呀   全世界各地都有机房  干嘛还需要多个region
