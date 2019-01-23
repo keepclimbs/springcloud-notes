@@ -15,6 +15,7 @@
     - @FeignClient(name = "github-client", url = "https://api.github.com", configuration = HelloFeignServiceConfig.class) 注解需要配合接口使用
         - name = "github-client"：微服务的名称, 如果用到了Ribbon name会作为微服务的名称用于服务发现
         - url = "https://api.github.com"： 目标服务的域名; 与接口里面方法的 @RequestMapping配合使用
+            - 如果是get请求 还需要和 @RequestParam配合使用 , 例如get请求通过id查询
         - configuration = HelloFeignServiceConfig.class： feign配置类 （Encoder, Decoder, Level, Contract等）
             - feign的专属Logger, 记录所有请求与响应的明细，包括头信息、请求体、元数据
         - fallback： 定义容错处理类。调用远程接口失败时调用。
