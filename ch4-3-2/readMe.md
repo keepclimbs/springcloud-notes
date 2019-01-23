@@ -19,4 +19,7 @@
 - springboot的logback日志配置
     - spring-boot-starter-web依赖包含了 日志logback的依赖,所以不用导入日志依赖
     - 具体日志配置细节请看logback.xml文件 (spring-note项目的log4j2日志笔记) [笔记](https://github.com/keepclimbs/spring-note/tree/master/src/main/resources/log4j2.xml)
+
+## feign文件上传
+- 请看增加的pom依赖和 代码
    
