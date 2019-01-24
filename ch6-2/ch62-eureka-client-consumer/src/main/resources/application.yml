@@ -1,0 +1,38 @@
+feign:
+  hystrix:
+    enabled: true
+
+server:
+  port: 8888
+spring:
+  application:
+    name: sc-consumer-service
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+ribbon:
+  eager-load:
+    enabled: true # 开启饥饿加载
+    clients: ch62-eureka-client-provider
+
+ch62-eureka-client-provider:
+  ribbon:
+    ConnectTimeout: 3000 #请求连接的超时时间
+    ReadTimeout: 3000 #请求处理的超时时间
+    MaxAutoRetries: 1 #最大重试次数，当Eureka中可以找到服务，但是服务连不上时将会重试
+    MaxAutoRetriesNextServer: 1 #切换实例的重试次数
+    kToRetryOnAllOperations: true
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 6000
+            #如果配置ribbon的重试，hystrix的超时时间要大于ribbon的超时时间，ribbon才会重试
+            #hystrix的超时时间=(1 + MaxAutoRetries + MaxAutoRetriesNextServer) * ReadTimeout 比较好，具体看需求
