@@ -11,6 +11,7 @@
     4、依次启动eureka-server, 服务提供者, 服务消费者, 然后访问 http://localhost:8011/swagger-ui.html 即可进行测试
 结论：
 
+
 ```
 # 学到了什么
 - 如何配置swagger
@@ -22,4 +23,4 @@
 
 ## feign文件上传
 - 请看增加的pom依赖和 代码
-   
+- 熟悉了服务间如何通过feign传递token 

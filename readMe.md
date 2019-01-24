@@ -8,3 +8,6 @@
 ## 3.6.2和 3.6.3暂不练习 以后再练习
 - 第七学 oepn-feign quick-start [笔记(有两个疑问)](https://github.com/keepclimbs/springcloud-notes/tree/master/ch4-1-2/readMe.md)
 - 第八学 feign的get,post参数传递 及feign文件上传 [笔记](https://github.com/keepclimbs/springcloud-notes/tree/master/ch4-3-2/readMe.md)
+## 验证码图片 controller的返回值是 Response 下次练习
+- 第九学 ribbon的 quick-start [笔记](https://github.com/keepclimbs/springcloud-notes/tree/master/ch5-1-2/readMe.md)
+## 超时与重试配置没有学习, 需要学完熔断技术

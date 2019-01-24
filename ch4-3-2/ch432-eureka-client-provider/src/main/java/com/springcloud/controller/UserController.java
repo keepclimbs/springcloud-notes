@@ -16,7 +16,7 @@ public class UserController {
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public String addUser(User user , HttpServletRequest request){
 		String token=request.getHeader("oauthToken");
-		return "hello,"+user.getName();
+		return "hello,"+ user.getName()+ " : " + request.getServerPort();
 	}
 
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
