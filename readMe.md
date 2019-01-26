@@ -11,3 +11,4 @@
 ## 验证码图片 controller的返回值是 Response 下次练习
 - 第九学 ribbon的 quick-start [笔记](https://github.com/keepclimbs/springcloud-notes/tree/master/ch5-1-2/readMe.md)
 - 第九学 hystrix的 quick-start [笔记](https://github.com/keepclimbs/springcloud-notes/tree/master/ch6-2/readMe.md)
+- 第十学 hystrix的 dashborad配置 但是不知道怎么使用  [笔记](https://github.com/keepclimbs/springcloud-notes/tree/master/ch6-2-3/readMe.md)
