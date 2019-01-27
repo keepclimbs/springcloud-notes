@@ -7,16 +7,19 @@
         1、分别启动eureka-server 和 eureka-client-provider, eureka-client-consumer, hystrix-dashborad
         2、然后访问 http://localhost:9000/hystrix
         3、在输入框里面输入http://localhost:9091/actuator/hystrix.stream 然后点击Monitor stream
-        4、跳转后页面解释 请看图1
+        4、跳转后页面解释 请看图2
     二：turbine演示(集群服务的监控)
         1、分别启动eureka-server 和 eureka-client-provider, eureka-client-consumer, turbine
         2、然后访问 http://localhost:9088/hystrix
-        3、看图片2 然后点击Monitor stream
+        3、看图片1 然后点击Monitor stream
         4、浏览器多次访问 http://localhost:9091/getProviderData 和http://localhost:8099/getHelloService
         5、跳转后页面解释 请看图1
     三：
         1、分别启动 eureka-server、eureka-client-provider、hystrix-exception-service 
-        2、分别访问hystrix-exception-service 了解HystrixCommand注解 和 ErrorDecoder 配置作
+        2、分别访问hystrix-exception-service 了解HystrixCommand注解 和 ErrorDecoder 配置
+    四：
+        1、分别启动 eureka-server、eureka-client-provider、hystrix-cache 
+        2、分别访问 CacheController了解 hystrix-cache
 结论：hystrix-dashborad监控成功
 ```
 - 图1
@@ -43,4 +46,6 @@
 ![image](https://github.com/keepclimbs/springcloud-notes/blob/master/img/623-3.png)
 
 - ErrorDecoder 配置作用
-    - 调用服务端对异常进行编码  当前服务就不知道为啥错了 就需要解码 （yes）
+    - 调用服务端对异常进行编码  当前服务就不知道为啥错了 就需要解码 （yes） 
+
+- 了解了 Hsytrix-cache ( 重点:需要配置 Hystrix请求上下文 因为Hystrix缓存仅仅在一次请求内有效 )

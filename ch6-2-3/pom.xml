@@ -13,6 +13,7 @@
         <module>ch623-hystrix-dashborad</module>
         <module>ch623-turbine</module>
         <module>ch623-hystrix-exception-service</module>
+        <module>ch623-hystrix-cache</module>
     </modules>
 
     <modelVersion>4.0.0</modelVersion>
