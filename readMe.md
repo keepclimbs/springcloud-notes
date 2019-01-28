@@ -12,3 +12,4 @@
 - 第九学 ribbon的 quick-start [笔记](https://github.com/keepclimbs/springcloud-notes/tree/master/ch5-1-2/readMe.md)
 - 第九学 hystrix的 quick-start [笔记](https://github.com/keepclimbs/springcloud-notes/tree/master/ch6-2/readMe.md)
 - 第十学 hystrix的 dashborad配置 但是不知道怎么使用  [笔记](https://github.com/keepclimbs/springcloud-notes/tree/master/ch6-2-3/readMe.md)
+- 第十学 hystrix-cache, hystrix-collapser 请求缓存和请求合并 [笔记(2个疑问)](https://github.com/keepclimbs/springcloud-notes/tree/master/ch6-2-3/readMe.md)

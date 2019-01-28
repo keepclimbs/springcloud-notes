@@ -20,6 +20,15 @@
     四：
         1、分别启动 eureka-server、eureka-client-provider、hystrix-cache 
         2、分别访问 CacheController了解 hystrix-cache
+           使用场景：暂时不知道
+    五：
+        1、分别启动 eureka-server、hystrix-collapser
+        2、分别访问CollapsingController里面的方法了解 hystrix-collapser, 访问http://localhost:5555/getAnimal
+           访问链接的时候需要多次刷新,这样才能多发送几次请求,才能证明和并请求了
+        注意：
+            1、接口返回值必须是Future
+            2、接口实现类 配置HystrixCollapser合并请求并配置HystrixProperty合并多少ms内的请求
+            使用场景：暂时不知道
 结论：hystrix-dashborad监控成功
 ```
 - 图1
@@ -54,3 +63,7 @@
     - 使用注解的话需要配置 @CacheResult 来开启缓存请求
 
 - 复习上一节：单纯的使用 hystrix 需要在service实现类上增加 @HystrixCommand(fallbackMethod="defaultUser") 此注解 并增加回调方法
+
+## 疑问
+- hystrix-cache 和 hystrix-collapser 使用场景
+- hystrix-collapser 打开多个窗口访问  但是并没有合并 请求, 为啥呢？
