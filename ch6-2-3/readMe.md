@@ -46,6 +46,11 @@
 ![image](https://github.com/keepclimbs/springcloud-notes/blob/master/img/623-3.png)
 
 - ErrorDecoder 配置作用
-    - 调用服务端对异常进行编码  当前服务就不知道为啥错了 就需要解码 （yes） 
+    - 调用服务端对异常信息进行编码  当前服务就不知道错误原因 就需要解码 （yes） 
 
-- 了解了 Hsytrix-cache ( 重点:需要配置 Hystrix请求上下文 因为Hystrix缓存仅仅在一次请求内有效 )
+- 了解了 Hsytrix-cache 
+    - 重点:需要配置 Hystrix请求上下文 因为Hystrix缓存仅仅在一次请求内有效 
+    - 开启Hystrix缓存 继承HystrixCommand的话 需要重写getCacheKey方法缓存请求
+    - 使用注解的话需要配置 @CacheResult 来开启缓存请求
+
+- 复习上一节：单纯的使用 hystrix 需要在service实现类上增加 @HystrixCommand(fallbackMethod="defaultUser") 此注解 并增加回调方法

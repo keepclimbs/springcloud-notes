@@ -2,3 +2,5 @@ out
 .idea/
 target
 *.iml
+logs/eureka-server-info.log
+logs/eureka-server-error.log
