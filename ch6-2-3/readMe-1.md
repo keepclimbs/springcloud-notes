@@ -15,9 +15,12 @@
 - Hystrix默认是 线程池隔离
 - hystrix配置说明
 ![image](https://github.com/keepclimbs/springcloud-notes/blob/master/img/623-4.png)
-- hystrix线程池 大小计算
+- hystrix线程池 大小计算  和 ribbon超时时间的设置
 ![image](https://github.com/keepclimbs/springcloud-notes/blob/master/img/623-5.png)
-
+- 预留了250ms,然后加上重试一次的中位数100ms的解释
+    - 30个并发  默认情况下可以给每个线程分配350ms的时候, 这个时间可以作为ribbon的超时配置时间
+    - ConnectionTimeOut:250ms
+    - ReadTimeOut:100ms
 ```
 配置隔离策略为 信号量 默认是线程池
 @HystrixCommand(fallbackMethod = "stubMyService",
