@@ -14,7 +14,13 @@ import java.security.KeyManagementException;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.CertificateException;
-
+/**
+ * @author: song biao wei
+ * @description: 应用实例 开启 https
+ * @date: 2019/1/29 14:57
+ * @params:
+ * @return:
+ */
 // 这个是https环境 才会激活
 // @Profile({"https"})
 @Configuration

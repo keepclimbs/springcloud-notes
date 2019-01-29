@@ -31,7 +31,13 @@
     - jar
     - war
     - pom : 项目里没有java代码，也不执行任何代码，只是为了聚合工程或传递依赖用的
-
+- 理解了maven version版本号
+    - 例子 0.0.1 第一个0是大版本号 第二个0是分支版本号  第三个0是小版本号
+    - snapshot 快照
+    - alpha    内部公测
+    - beta     公测
+    - Release  稳定
+    - GA       发布
 ## 关于springcloud
 ```
 - spring-boot-starter-parent

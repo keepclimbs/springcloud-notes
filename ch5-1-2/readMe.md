@@ -26,8 +26,8 @@
 还可以指定
     ILoadBalancer           # 对应配置 <clientName>.ribbon.NFLoadBalancerClassName
     IPing                   # 对应配置 <clientName>.ribbon.NFLoadBalancerPingClassName
-    ServerList              # 对应配置 <clientName>.ribbon.NFWSServerListClassName
-    ServerListFilter        # 对应配置 <clientName>.ribbon.NFWSServerListFilterClassName
+    ServerList              # 对应配置 <clientName>.ribbon.NIWSServerListClassName
+    ServerListFilter        # 对应配置 <clientName>.ribbon.NIWSServerListFilterClassName
 这些类的实现类
 ```
 - ribbon饥饿加载

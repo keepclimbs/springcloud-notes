@@ -22,8 +22,8 @@ ch62-eureka-client-provider:
   ribbon:
     ConnectTimeout: 3000 #请求连接的超时时间
     ReadTimeout: 3000 #请求处理的超时时间
-    MaxAutoRetries: 1 #最大重试次数，当Eureka中可以找到服务，但是服务连不上时将会重试
-    MaxAutoRetriesNextServer: 1 #切换实例的重试次数
+    MaxAutoRetries: 1 # 同一服务器上的最大重试次数（不包括第一次尝试）
+    MaxAutoRetriesNextServer: 1 #下一个要重试的服务器的最大数量（不包括第一个服务器）
     OkToRetryOnAllOperations: true # 确定重试
     NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule
 
