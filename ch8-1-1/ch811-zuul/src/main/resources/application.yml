@@ -23,3 +23,6 @@ zuul:
     client-a:
       path: /client/**
       serviceId: client-a
+  ribbon:
+    eager-load:
+      enabled: true

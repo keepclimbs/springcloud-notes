@@ -17,3 +17,5 @@
 - 第十一学 zuul的Filter链学习 [笔记](https://github.com/keepclimbs/springcloud-notes/tree/master/ch8-1-1/readMe.md)
 ## 第十一学 zuul的权限集成学习- zuul限流 - 什么都没学到 [笔记](https://github.com/keepclimbs/springcloud-notes/tree/master/ch8-2-1/readMe.md)
 ## 第十一学 zuul的动态路由  基于DB 和 刷新事件 暂时不做
+- 第十二学 灰度发布  [笔记(一个疑问)](https://github.com/keepclimbs/springcloud-notes/tree/master/ch8-1-1/readMe.md)
+- 第十二学 zuul文件上传  [笔记](https://github.com/keepclimbs/springcloud-notes/tree/master/ch8-1-1/readMe.md)

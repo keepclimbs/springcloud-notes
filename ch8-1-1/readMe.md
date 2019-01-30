@@ -46,6 +46,8 @@ zuul:
 - Zuul生命周期组合流程图
 ![image](https://github.com/keepclimbs/springcloud-notes/blob/master/img/811-1.png)
 
+## 灰度发布
+- 疑惑： 灰度发布要先写好Filter 而且还要手动配置请求的header
 - 增加了三个类 在 eureka-client里面 分别启动不同的配置文件 比命令行跟方便 
 - zuul 项目 增加了一个 Filter 实现了 灰度发布
 ```
@@ -53,3 +55,8 @@ zuul:
     分别启动eureka-server,  zuul , 三个节点的eureka-client
     利用postman 访问http://localhost:5555/client/mul?a=100&b=300  header增加条件 gray_mark = enable 就可以访问到7073端口
 ```
+
+## 文件上传 
+- 新加了一个配置文件和一个controller 
+- 注意点1: springboot的版本不同 文件上传的配置也有些许区别 需要注意
+- 注意点2: springcloud F版本之前 上传中文名字的文件会乱码  在请求前面加上 zuul就会好 (官方解释)  http://localhost:5555/zuul/upload 
