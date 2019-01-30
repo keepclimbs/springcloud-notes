@@ -8,6 +8,13 @@ import javax.servlet.http.HttpServletRequest;
 
 import static org.springframework.cloud.netflix.zuul.filters.support.FilterConstants.PRE_TYPE;
 
+/**
+ * @author: song biao wei
+ * @description: 验证请求的参数b 是否为空
+ * @date: 2019/1/30 14:32
+ * @params:
+ * @return:
+ */
 public class ThirdPreFilter extends ZuulFilter {
     
     @Override

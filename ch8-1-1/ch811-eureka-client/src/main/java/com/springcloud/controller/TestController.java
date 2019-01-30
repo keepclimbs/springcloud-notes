@@ -1,7 +1,12 @@
 package com.springcloud.controller;
 
+import org.apache.tomcat.util.http.fileupload.RequestContext;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.context.request.RequestAttributes;
+import org.springframework.web.context.request.RequestContextHolder;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author: song biao wei
@@ -27,9 +32,9 @@ public class TestController {
     }
 
     @GetMapping("/mul")
-    public String mul(Integer a, Integer b){
+    public String mul(Integer a, Integer b, HttpServletRequest request){
         System.out.println("进入client-a!");
-        return "client-a-" + a * b;
+        return  request.getServerPort() + " client-a-" + a * b;
     }
 
     @GetMapping("/div")

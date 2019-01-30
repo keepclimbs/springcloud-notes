@@ -5,7 +5,13 @@ import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
 
 import static org.springframework.cloud.netflix.zuul.filters.support.FilterConstants.POST_TYPE;
-
+/**
+ * @author: song biao wei
+ * @description: post上下文
+ * @date: 2019/1/30 14:33
+ * @params:
+ * @return:
+ */
 public class PostFilter extends ZuulFilter {
     
     @Override

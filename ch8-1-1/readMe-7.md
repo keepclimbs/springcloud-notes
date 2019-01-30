@@ -22,7 +22,7 @@
        默认情况下, zuul会使用Eureka中集成的基本负载均衡功能, 如果想要使用Ribbon的负载均衡功能, 就需要指定
        一个serviceId, 此操作需要禁止Ribbon使用Eureka
        
-       很疑惑这里的服务是写死的, 真的好么
+       很疑惑这里的服务是写死的, 为什么要禁止eureka 真的好么
        
         zuul: 
            routes:

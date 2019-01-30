@@ -15,4 +15,5 @@
 - 第十学 hystrix-cache, hystrix-collapser 请求缓存和请求合并 [笔记(2个疑问)](https://github.com/keepclimbs/springcloud-notes/tree/master/ch6-2-3/readMe.md)
 - 第十学 hystrix-thread-context 线程传递及并发策略及hystrix总结 [笔记](https://github.com/keepclimbs/springcloud-notes/tree/master/ch6-2-3/readMe-1.md)
 - 第十一学 zuul的Filter链学习 [笔记](https://github.com/keepclimbs/springcloud-notes/tree/master/ch8-1-1/readMe.md)
-## 第十一学 zuul的权限集成学习 - 什么都没学到 [笔记](https://github.com/keepclimbs/springcloud-notes/tree/master/ch8-2-1/readMe.md)
+## 第十一学 zuul的权限集成学习- zuul限流 - 什么都没学到 [笔记](https://github.com/keepclimbs/springcloud-notes/tree/master/ch8-2-1/readMe.md)
+## 第十一学 zuul的动态路由  基于DB 和 刷新事件 暂时不做

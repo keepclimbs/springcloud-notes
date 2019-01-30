@@ -7,7 +7,13 @@ import com.netflix.zuul.exception.ZuulException;
 import javax.servlet.http.HttpServletRequest;
 
 import static org.springframework.cloud.netflix.zuul.filters.support.FilterConstants.PRE_TYPE;
-
+/**
+ * @author: song biao wei
+ * @description:  作用 验证请求的参数a 是否为空
+ * @date: 2019/1/30 14:32
+ * @params:
+ * @return:
+ */
 public class SecondPreFilter extends ZuulFilter {
 
     @Override
