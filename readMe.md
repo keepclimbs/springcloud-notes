@@ -1,4 +1,5 @@
 # :computer: spingcloud学习记录
+## pom中有些依赖下载不下来 可以给 依赖配置粘贴到别的项目中下载下来 然后在当前项目中去掉这个依赖 重新粘贴下载就可以了
 - 第一学 springcloud: quick-start [笔记](https://github.com/keepclimbs/springcloud-notes/tree/master/ch2-1/readMe.md)
 - 第二学(没有跑起来) config-server  代码实现ch3-1 [笔记](https://github.com/keepclimbs/springcloud-notes/tree/master/ch3-1/readMe.md)
 - 第三学 ZoneAffinity 区域亲和性  [笔记](https://github.com/keepclimbs/springcloud-notes/tree/master/ch3-5-2/readMe.md)
@@ -19,3 +20,4 @@
 ## 第十一学 zuul的动态路由  基于DB 和 刷新事件 暂时不做
 - 第十二学 灰度发布  [笔记(一个疑问)](https://github.com/keepclimbs/springcloud-notes/tree/master/ch8-1-1/readMe.md)
 - 第十二学 zuul文件上传  [笔记](https://github.com/keepclimbs/springcloud-notes/tree/master/ch8-1-1/readMe.md)
+- 第十二学 zuul添加请求头header swagger练习  [笔记](https://github.com/keepclimbs/springcloud-notes/tree/master/ch8-7-1/readMe.md)
