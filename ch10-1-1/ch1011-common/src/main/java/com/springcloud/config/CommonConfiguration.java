@@ -1,6 +1,9 @@
 package com.springcloud.config;
 
 import com.springcloud.context.SpringCloudHystrixConcurrencyStrategy;
+import com.springcloud.intercepter.FeignUserContextInterceptor;
+import com.springcloud.intercepter.RestTemplateUserContextInterceptor;
+import com.springcloud.intercepter.UserContextInterceptor;
 import feign.Feign;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
@@ -19,7 +22,7 @@ public class CommonConfiguration implements WebMvcConfigurer {
      */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new UserContextInterceptor1());
+        registry.addInterceptor(new UserContextInterceptor());
     }
 
     /**
@@ -27,8 +30,8 @@ public class CommonConfiguration implements WebMvcConfigurer {
      */
     @Bean
     @ConditionalOnClass(Feign.class)
-    public FeignUserContextInterceptor3 feignTokenInterceptor() {
-        return new FeignUserContextInterceptor3();
+    public FeignUserContextInterceptor feignTokenInterceptor() {
+        return new FeignUserContextInterceptor();
     }
 
     /**
