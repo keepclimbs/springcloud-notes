@@ -21,3 +21,4 @@
 - 第十二学 灰度发布  [笔记(一个疑问)](https://github.com/keepclimbs/springcloud-notes/tree/master/ch8-1-1/readMe.md)
 - 第十二学 zuul文件上传  [笔记](https://github.com/keepclimbs/springcloud-notes/tree/master/ch8-1-1/readMe.md)
 - 第十二学 zuul添加请求头header swagger练习  [笔记](https://github.com/keepclimbs/springcloud-notes/tree/master/ch8-7-1/readMe.md)
+- 第十三学 config-server学习  [笔记](https://github.com/keepclimbs/springcloud-notes/tree/master/ch10-1-1/readMe.md)
