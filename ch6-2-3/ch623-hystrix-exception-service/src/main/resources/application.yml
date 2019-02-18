@@ -24,8 +24,8 @@ feign:
       ch623-eureka-client-provider: # 需要配置的feignName
         errorDecoder: com.springcloud.service.dataservice.FeignErrorDecoder
 ribbon:
-  ConnectTimeout: 6000
-  ReadTimeout: 6000
+  ConnectTimeout: 6000  # http客户端为httpclient才生效
+  ReadTimeout: 6000     # http客户端为httpclient才生效
   MaxAutoRetries: 0
   MaxAutoRetriesNextServer: 0
 hystrix:

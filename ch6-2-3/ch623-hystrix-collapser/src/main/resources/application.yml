@@ -20,8 +20,8 @@ feign:
   hystrix:
     enabled: true
 ribbon:
-  ConnectTimeout: 6000
-  ReadTimeout: 6000
+  ConnectTimeout: 6000 # http客户端为httpclient才生效
+  ReadTimeout: 6000    # http客户端为httpclient才生效
   MaxAutoRetries: 0
   MaxAutoRetriesNextServer: 0
 hystrix:

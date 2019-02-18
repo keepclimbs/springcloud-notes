@@ -41,8 +41,8 @@ ribbon:
         
 # 重试机制配置  F版本默认开启了重试机制所以需要配置相关信息     
 ribbon:
-  ConnectTimeout: 3000
-  ReadTimeout: 60000
+  ConnectTimeout: 3000  # http客户端为httpclient才生效
+  ReadTimeout: 60000    # http客户端为httpclient才生效
   MaxAutoRetries: 1 #对第一次请求的服务的重试次数
   MaxAutoRetriesNextServer: 1 #要重试的下一个服务的最大数量（不包括第一个服务）
   OkToRetryOnAllOperations: true

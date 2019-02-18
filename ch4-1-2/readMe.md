@@ -1,4 +1,5 @@
 #代码实现ch412-feign-helloword
+- feign默认是使用jdk原生的URLConnection发送http请求
 ```
 功能：feign的helloword 和 gzip 启动方式相同
 操作步骤：

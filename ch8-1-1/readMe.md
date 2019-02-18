@@ -37,8 +37,8 @@ zuul:
   host:
     socket-timeout-millis: 600000 
     connect-timeout-millis: 600000
-    max-per-route-connections: 1024 
-    max-total-connections: 1024 
+    max-per-route-connections: 1024  # okhttp无效
+    max-total-connections: 1024      # okhttp无效
   SendErrorFilter:    # 禁用过滤器 下面有解释
     error:
       disable: false
@@ -52,7 +52,15 @@ zuul:
   如果路由方式是url的方式，则zuul.host开头的生效:
         zuul.host.connect-timeout-millis
         zuul.host.socket-timeout-millis 
+        
   如果路由方式是serviceId的方式，那么ribbon的超时时间生效
+  重试机制配置 
+  ribbon:
+    ConnectTimeout: 3000 # http客户端为httpclient才生效
+    ReadTimeout: 60000   # http客户端为httpclient才生效
+    MaxAutoRetries: 1 #对第一次请求的服务的重试次数
+    MaxAutoRetriesNextServer: 1 #要重试的下一个服务的最大数量（不包括第一个服务）
+    OkToRetryOnAllOperations: true
     
          
   禁用过滤器：

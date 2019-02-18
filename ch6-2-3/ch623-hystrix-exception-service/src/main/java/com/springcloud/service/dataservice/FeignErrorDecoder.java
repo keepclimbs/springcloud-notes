@@ -23,8 +23,7 @@ public class FeignErrorDecoder implements feign.codec.ErrorDecoder{
             if (response.status() >= 400 && response.status() <= 499) {
                 String error = Util.toString(response.body().asReader());
                 /** 两段代码等价 error和str相同 */
-                byte[] bytes = StreamUtils.copyToByteArray(response.body().asInputStream());
-                String str = new String(bytes, "UTF-8");
+                String str = StreamUtils.copyToString(response.body().asInputStream(), Charset.forName("UTF-8"));
                 return new HystrixBadRequestException(error);
             }
         } catch (IOException e) {
