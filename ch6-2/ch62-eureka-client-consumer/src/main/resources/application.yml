@@ -20,11 +20,11 @@ ribbon:
 
 ch62-eureka-client-provider:
   ribbon:
-    ConnectTimeout: 3000 #请求连接的超时时间   # http客户端为httpclient才生效
-    ReadTimeout: 3000 #请求处理的超时时间      # http客户端为httpclient才生效
-    MaxAutoRetries: 1 # 同一服务器上的最大重试次数（不包括第一次尝试）
-    MaxAutoRetriesNextServer: 1 #下一个要重试的服务器的最大数量（不包括第一个服务器）
-    OkToRetryOnAllOperations: true # 确定重试
+    ConnectTimeout: 3000 #请求连接的超时时间   # http客户端为httpclient才生效 默认5秒
+    ReadTimeout: 3000 #请求处理的超时时间      # http客户端为httpclient才生效 默认5秒
+    MaxAutoRetries: 1 # 同一服务器上的最大重试次数（不包括第一次尝试）         推荐设置为0
+    MaxAutoRetriesNextServer: 1 #下一个要重试的服务器的最大数量（不包括第一个服务器） 推荐设置为0
+    OkToRetryOnAllOperations: true # 确定重试                                     推荐设置为false
     NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule
 
 hystrix:
@@ -33,6 +33,6 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 6000
+            timeoutInMilliseconds: 6000  #推荐设置 10s
             #如果配置ribbon的重试，hystrix的超时时间要大于ribbon的超时时间，ribbon才会重试
             #hystrix的超时时间=(1 + MaxAutoRetries + MaxAutoRetriesNextServer) * ReadTimeout 比较好，具体看需求

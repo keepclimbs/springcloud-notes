@@ -1,4 +1,17 @@
 # 学到了什么
+- zuul推荐设置
+``` 
+zuul:
+    ribbonIsolationStrategy: THREAD # 默认zuul使用信号量
+    threadPool:
+        useSeparateThreadPools: true 
+        threadPoolKeyPrefix: zuulgatway # 线程前缀
+    host:
+        max-per-route-connections: 50  # 每个路由最大连接数 默认20
+        max-total-connections: 300     # 目标主机最大连接数
+        socket-timeout-millis: 5000    # zuul路由方式是url的方式 才生效
+        connect-timeout-millis: 5000   # zuul路由方式是url的方式 才生效
+```
 ##  [第七章 zuul 基础篇](https://github.com/keepclimbs/springcloud-notes/tree/master/ch8-1-1/readMe-7.md)
 ## 第八章内容如下
 
@@ -56,11 +69,11 @@ zuul:
   如果路由方式是serviceId的方式，那么ribbon的超时时间生效
   重试机制配置 
   ribbon:
-    ConnectTimeout: 3000 # http客户端为httpclient才生效
-    ReadTimeout: 60000   # http客户端为httpclient才生效
-    MaxAutoRetries: 1 #对第一次请求的服务的重试次数
-    MaxAutoRetriesNextServer: 1 #要重试的下一个服务的最大数量（不包括第一个服务）
-    OkToRetryOnAllOperations: true
+    ConnectTimeout: 3000 #请求连接的超时时间   # http客户端为httpclient才生效 默认5秒
+    ReadTimeout: 3000 #请求处理的超时时间      # http客户端为httpclient才生效 默认5秒
+    MaxAutoRetries: 1 # 同一服务器上的最大重试次数（不包括第一次尝试）         推荐设置为0
+    MaxAutoRetriesNextServer: 1 #下一个要重试的服务器的最大数量（不包括第一个服务器） 推荐设置为0
+    OkToRetryOnAllOperations: true # 确定重试 推荐设置为fasle
     
          
   禁用过滤器：

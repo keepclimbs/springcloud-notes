@@ -3,7 +3,7 @@
 - feign截器来传递用户信息         ------- RequestInterceptor
 - restTemplate截器来传递用户信息  ------- ClientHttpRequestInterceptor
 - 线程传递属性                    -------  CommonConfiguration
-- 实现类zuul的 fallback           -------  FallbackProvider
+- 实现类zuul的 fallback           -------  FallbackProvider   (区别下hystrix的fallback哦)
 
 ## 实现 config-server第一种方式  使用git配合actuator刷新
 

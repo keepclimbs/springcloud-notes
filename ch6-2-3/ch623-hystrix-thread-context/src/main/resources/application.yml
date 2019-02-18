@@ -15,10 +15,11 @@ feign:
   hystrix:
     enabled: true
 ribbon:
-  ConnectTimeout: 6000 # http客户端为httpclient才生效
-  ReadTimeout: 6000    # http客户端为httpclient才生效
-  MaxAutoRetries: 0
-  MaxAutoRetriesNextServer: 0
+  ConnectTimeout: 3000 #请求连接的超时时间   # http客户端为httpclient才生效 默认5秒
+  ReadTimeout: 3000 #请求处理的超时时间      # http客户端为httpclient才生效 默认5秒
+  MaxAutoRetries: 1 # 同一服务器上的最大重试次数（不包括第一次尝试）         推荐设置为0
+  MaxAutoRetriesNextServer: 1 #下一个要重试的服务器的最大数量（不包括第一个服务器） 推荐设置为0
+  OkToRetryOnAllOperations: true # 确定重试 推荐设置为fasle
 hystrix:
   command:
     default:
@@ -26,4 +27,4 @@ hystrix:
         timeout:
         isolation:
           thread:
-            timeoutInMilliseconds: 15000
+            timeoutInMilliseconds: 15000 #推荐设置 10s

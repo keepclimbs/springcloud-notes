@@ -1,5 +1,19 @@
 # 代码实现ch2-2
-
+- hystrix推荐配置
+```
+hystrix:
+    command:
+        default:
+            execution:
+                isolation:
+                    thread:
+                        timeoutInMilliseconds: 10000 # 全局请求连接超时时间 默认1s 推荐为10s
+    threadpool:
+        default:
+            coreSize: 20   # 全局默认核心线程池大小
+            maximumSize: 50  # 全局默认最大线程池大小
+            allowMaximumSizeToDivergeFromCoreSize: true # 允许上面两个配置生效 默认为false
+```
 ```
 功能：展示hystrix的基础使用
 操作步骤：

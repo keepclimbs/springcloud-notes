@@ -29,8 +29,8 @@ ribbon:
   okhttp:
     enabled: true
 #重试机制配置
-  ConnectTimeout: 3000 # http客户端为httpclient才生效
-  ReadTimeout: 60000   # http客户端为httpclient才生效
-  MaxAutoRetries: 1 #对第一次请求的服务的重试次数
-  MaxAutoRetriesNextServer: 1 #要重试的下一个服务的最大数量（不包括第一个服务）
-  OkToRetryOnAllOperations: true
+  ConnectTimeout: 3000 #请求连接的超时时间   # http客户端为httpclient才生效 默认5秒
+  ReadTimeout: 3000 #请求处理的超时时间      # http客户端为httpclient才生效 默认5秒
+  MaxAutoRetries: 1 # 同一服务器上的最大重试次数（不包括第一次尝试）         推荐设置为0
+  MaxAutoRetriesNextServer: 1 #下一个要重试的服务器的最大数量（不包括第一个服务器） 推荐设置为0
+  OkToRetryOnAllOperations: true # 确定重试 推荐设置为fasle
