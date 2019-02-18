@@ -2,6 +2,8 @@ package com.springcloud.intercepter;
 
 import com.springcloud.context.UserContextHolder;
 import com.springcloud.vo.User;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpRequest;
 import org.springframework.http.client.ClientHttpRequestExecution;
 import org.springframework.http.client.ClientHttpRequestInterceptor;
@@ -16,10 +18,12 @@ import java.util.Map;
  * @description:
  */
 public class RestTemplateUserContextInterceptor implements ClientHttpRequestInterceptor {
+    private static final Logger logger = LoggerFactory.getLogger(RestTemplateUserContextInterceptor.class);
 
     @Override
     public ClientHttpResponse intercept(HttpRequest request, byte[] body, ClientHttpRequestExecution execution)
             throws IOException {
+        logger.info("RestTemplateUserContextInterceptor thread ------------------------ {}", Thread.currentThread().getId());
         User user = UserContextHolder.currentUser();
         Map<String, String> headers = user.toHttpHeaders();
         for (Map.Entry<String, String> header : headers.entrySet()) {

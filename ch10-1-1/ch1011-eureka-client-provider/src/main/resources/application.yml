@@ -14,3 +14,7 @@ management:
     web:
       exposure:
         include: hystrix.stream
+
+user:
+  id: 1
+  realname: "songbiaowei"

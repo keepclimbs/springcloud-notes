@@ -18,13 +18,14 @@ import javax.servlet.http.HttpServletResponse;
  * @description:
  */
 public class UserContextInterceptor implements HandlerInterceptor {
-    private static final Logger log = LoggerFactory.getLogger(UserContextInterceptor.class);
+    private static final Logger logger = LoggerFactory.getLogger(UserContextInterceptor.class);
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse respone, Object arg2) throws Exception {
+        logger.info("UserContextInterceptor thread ------------------------ {}", Thread.currentThread().getId());
         User user = new User(HttpConvertUtil.httpRequestToMap(request));
         if(StringUtils.isEmpty(user.getUserId()) && StringUtils.isEmpty(user.getUserName())) {
-            log.error("the user is null, please access from gateway or check user info");
+            logger.error("the user is null, please access from gateway or check user info");
             return false;
         }
         UserContextHolder.set(user);

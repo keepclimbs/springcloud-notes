@@ -67,9 +67,8 @@ public class ZuulFallback implements FallbackProvider{
              */
             @Override
             public InputStream getBody() throws IOException {
-                //定义自己的错误信息
-
-                return new ByteArrayInputStream("asdfadsf".getBytes());
+                /** 定义自己的错误信息 */
+                return new ByteArrayInputStream("后台服务还没有启动 请稍后".getBytes());
             }
 
             @Override
