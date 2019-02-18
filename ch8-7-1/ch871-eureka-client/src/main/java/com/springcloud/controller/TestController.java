@@ -5,6 +5,7 @@ import io.swagger.annotations.ApiOperation;
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Enumeration;
@@ -18,9 +19,10 @@ public class TestController {
 	@ApiOperation(value = "加法", notes = "加法")
 	@GetMapping("/add")
 	public String add(Integer a, Integer b, HttpServletRequest request){
-		String request1 = request.getHeader("result");
-		String weight = request.getParameter("weight");
-		return "Port: " + request.getServerPort() + "" + (a + b);
+		// 验证给请求头header增加 属性
+		System.out.println(request.getParameter("weight"));
+		String requestHeader = request.getHeader("result");
+		return "requestHeader: " + requestHeader + "" + (a + b);
 	}
 	
 	@ApiOperation(value = "减法", notes = "减法")
@@ -42,14 +44,7 @@ public class TestController {
 	}
 	
 	@PostMapping("/modifyRequestEntity")
-	public Map<String, Object> modifyRequestEntity (HttpServletRequest request) {
-        Map<String, Object> bodyParams = new HashMap<>();
-        Enumeration enu = request.getParameterNames();  
-        while (enu.hasMoreElements()) {  
-	        String paraName = (String)enu.nextElement();  
-	        bodyParams.put(paraName, request.getParameter(paraName));
-			System.out.println(paraName);
-        }
-        return bodyParams;
+	public String modifyRequestEntity (@RequestBody DemoVo demoVo) {
+        return demoVo.toString();
 	}
 }

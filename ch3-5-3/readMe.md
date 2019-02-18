@@ -2,7 +2,7 @@
 ##代码实现ch3-5-3
 ```
 功能：springcloud异地多活 当local region 不可用之后 自动转移请求 到 remote region
-操作步骤：
+操作步骤： 增加配置类 EurekaServerConfigBean
     1、先启动 4个 eureka-server , 然后启动 4个client 和 2 个 zuul
     2、然后访问 localhost:10001/client/actuator/env  会显示 activeProfiles : [ "zone1" ] 
     3、然后停止zone1 zone2的服务,继续访问    localhost:10001/client/actuator/env 

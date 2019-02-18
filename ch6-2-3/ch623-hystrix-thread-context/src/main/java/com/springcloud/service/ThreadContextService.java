@@ -13,7 +13,7 @@ import org.springframework.web.context.request.RequestContextHolder;
 public class ThreadContextService implements IThreadContextService{
 	private static final Logger log = LoggerFactory.getLogger(ThreadContextController.class);
 
-	// 如果没有这个注解 就相当于没有使用Hystrix
+	// 如果没有这个注解 就相当于没有使用Hystrix 就没有使用线程池隔离
    @HystrixCommand
 	public String getUser(Integer id) {
 		log.info("ThreadContextService, Current thread : " + Thread.currentThread().getId());

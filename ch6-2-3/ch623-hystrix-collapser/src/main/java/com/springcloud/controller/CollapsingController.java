@@ -29,6 +29,7 @@ public class CollapsingController {
      */
     @RequestMapping("/getAnimal")
     public String getAnimal() throws Exception {
+        // 两个请求合并到一个方法里面处理 及请求合并
         Future<Animal> user = collapsingService.collapsing(1);
         Future<Animal> user2 = collapsingService.collapsing(2);
         System.out.println(user.get().getName());

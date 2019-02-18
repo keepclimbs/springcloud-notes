@@ -13,7 +13,15 @@ import java.util.*;
 
 @Component
 public class FeignRequestInterceptor implements RequestInterceptor {
-
+    /**
+     * 提供读取和写入JSON的功能，
+     * 从基本的POJOs（普通的Java对象）到或从
+     * 通用JSON树模型（@link jsonnode），以及
+     * 执行转换的相关功能。
+     * 它还具有高度的可定制性，可以同时使用不同风格的JSON。
+     * 内容，并支持更高级的对象概念，如
+     * 多态性和对象标识。
+     */
     @Autowired
     private ObjectMapper objectMapper;
 
@@ -25,6 +33,7 @@ public class FeignRequestInterceptor implements RequestInterceptor {
                 JsonNode jsonNode = objectMapper.readTree(template.body());
                 template.body(null);
                 Map<String, Collection<String>> queries = new HashMap<>();
+                /** 给json字符串 转换成map 然后重新设置template的queries属性 */
                 buildQuery(jsonNode, "", queries);
                 template.queries(queries);
             } catch (IOException e) {
@@ -34,6 +43,12 @@ public class FeignRequestInterceptor implements RequestInterceptor {
         }
     }
 
+    /***
+     * 即使对象里面有对象 也可以递归出来 例子 User里面有对象 Menu  map的内容为
+     *     "id":1,
+     *     "menu.id":1
+     *     "menu.name:"song""
+     */
     private void buildQuery(JsonNode jsonNode, String path, Map<String, Collection<String>> queries) {
         // 叶子节点
         if (!jsonNode.isContainerNode()) {

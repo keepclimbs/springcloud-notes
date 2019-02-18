@@ -18,9 +18,21 @@ public class PSFallbackBadRequestExpcetion extends HystrixCommand<String>{
 	
     @Override
     protected String getFallback() {
+        // 输出异常信息 注解方式是增加参数 Throwable throwable 请看下面注释代码
     	System.out.println(getFailedExecutionException().getMessage());
         return "invoke HystrixBadRequestException fallback method:  ";
     }
+
+    /*@GetMapping("/getFallbackMethodTest")
+    @HystrixCommand(fallbackMethod="defaultUser")
+    public String getFallbackMethodTest(String id){
+        throw new RuntimeException("getFallbackMethodTest failed");
+    }
+
+    public String defaultUser(String id, Throwable throwable) {
+        log.error(throwable.getMessage());
+        return "this is fallback message";
+    }*/
 	
 	
 }

@@ -30,7 +30,7 @@
     ServerListFilter        # 对应配置 <clientName>.ribbon.NIWSServerListFilterClassName
 这些类的实现类
 ```
-- ribbon饥饿加载
+- ribbon饥饿加载 和 重试机制
 ```
 ribbon默认是 在请求时才去创建服务的上下文, 这个特性可能会导致第一次调用的时候超时, 解决办法是开启 饥饿加载
 具体配置如下:
@@ -38,6 +38,14 @@ ribbon:
     eager-load:
         enabled: true
         clients: client-a, client-b, client-c
+        
+# 重试机制配置  F版本默认开启了重试机制所以需要配置相关信息     
+ribbon:
+  ConnectTimeout: 3000
+  ReadTimeout: 60000
+  MaxAutoRetries: 1 #对第一次请求的服务的重试次数
+  MaxAutoRetriesNextServer: 1 #要重试的下一个服务的最大数量（不包括第一个服务）
+  OkToRetryOnAllOperations: true
 ```
 - ribbon脱离eureka
 ```

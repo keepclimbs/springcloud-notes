@@ -1,35 +1,6 @@
 # 学到了什么
 ##  [第七章 zuul 基础篇](https://github.com/keepclimbs/springcloud-notes/tree/master/ch8-1-1/readMe-7.md)
 ## 第八章内容如下
-```
-zuul:
-  host:
-    socket-timeout-millis: 600000 
-    connect-timeout-millis: 600000
-    max-per-route-connections: 1024 
-    max-total-connections: 1024 
-  SendErrorFilter: 
-    error:
-      disable: false
-      
-  解释： 
-  max-per-route-connections： 默认20个 适用于ApacheHttpClient，如果是okhttp无效。每个route可用的最大连接数
-  max-total-connections: 默认200个 适用于ApacheHttpClient，如果是okhttp无效。每个服务的http客户端连接池最大连接.
-  如果是url的方式，则zuul.host开头的生效:
-        zuul.host.connect-timeout-millis
-        zuul.host.socket-timeout-millis 
-  如果路由方式是serviceId的方式，那么ribbon的超时时间生效
-    
-         
-  禁用过滤器：
-     配置规则是 zuul.<SimpleClassName>.<FilterType>.disable=true
-     SimpleClassName例子：SendErrorFilter 可以是自定义的Filter
-     FilterType
-        - pre
-        - route
-        - post
-        - error
-```
 
 - 自定义Filter必须继承ZuulFilter类
     - 重写方法：filterType 通过返回值设置Filter类型
@@ -58,5 +29,39 @@ zuul:
 
 ## 文件上传 
 - 新加了一个配置文件和一个controller 
-- 注意点1: springboot的版本不同 文件上传的配置也有些许区别 需要注意
+- 注意点1: springboot的版本不同 文件上传的配置也有些许区别 需要注意 (请看application-uploadFile.yml文件)
 - 注意点2: springcloud F版本之前 上传中文名字的文件会乱码  在请求前面加上 zuul就会好 (官方解释)  http://localhost:5555/zuul/upload 
+
+```
+zuul:
+  host:
+    socket-timeout-millis: 600000 
+    connect-timeout-millis: 600000
+    max-per-route-connections: 1024 
+    max-total-connections: 1024 
+  SendErrorFilter:    # 禁用过滤器 下面有解释
+    error:
+      disable: false
+      
+解释： 
+  ApacheHttpClient配置route最大连接数(如果是okhttp无效)
+       max-per-route-connections： 默认20个 
+  服务的http客户端连接池最大连接.适用于ApacheHttpClient，如果是okhttp无效。
+       max-total-connections: 默认200个 
+    
+  如果路由方式是url的方式，则zuul.host开头的生效:
+        zuul.host.connect-timeout-millis
+        zuul.host.socket-timeout-millis 
+  如果路由方式是serviceId的方式，那么ribbon的超时时间生效
+    
+         
+  禁用过滤器：
+     配置规则是 zuul.<SimpleClassName>.<FilterType>.disable=true
+     SimpleClassName例子：SendErrorFilter 可以是自定义的Filter
+     FilterType
+        - pre
+        - route
+        - post
+        - error
+        
+```

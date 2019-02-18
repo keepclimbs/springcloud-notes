@@ -18,6 +18,10 @@ mvn spring-boot:run  命令后面可以拼接 后面这三个属性
     -Dspring.profiles.active=zone1a 
     --settings G:\javaTools\apache-maven-3.3.9\conf\settings-aliyun.xml
     -Dspring-boot.run.jvmArguments="-Xms256m -Xmx256m"
+    练习的话：
+            指定分配内存的话可以复制多个main方法主类  等价 (-Dspring-boot.run.jvmArguments="-Xms256m -Xmx256m")
+            main方法参数可以指定配置文件              等价 (-Dspring.profiles.active=zone1a )
+    例子: SpringApplication.run(Ch811EurekaClientApplication3.class, "--spring.profiles.active=node3");
 ```
 ## 关于springcloud 区域亲和性
 - eureka-client 和 zuul 在同一个 zone 里面, 访问网关zuul的时候, 会优先调用当前zone的 eureka-client

@@ -3,7 +3,7 @@
 - keytool jdk自带的 如果想知道怎么使用 直接用cmd命令行 输入 keytool -help就可以了解。
 ```
 功能：启用https
-操作步骤：
+操作步骤： 需要配置类 EurekaHttpsClientConfig
 - 1、生成server端证书, 使用Teriminal切换到项目目录 下列命令都在同一目录执行
     - 执行命令：
         1) 生成证书： keytool -genkeypair -alias serverSsl -storetype PKCS12 -keyalg RSA -keysize 2048 -keystore serverSsl.p12 -validity 3650

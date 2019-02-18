@@ -91,7 +91,7 @@
             MaxAutoRetries: 1
             MaxAutoRetriesNextServer: 1
     
-    6) zuul的饥饿加载
+    6) zuul的饥饿加载 ribbon也有饥饿加载 配置类似
         zuul:
             ribbon:
               eager-load:

@@ -5,13 +5,15 @@
 操作步骤：
     1、分别启动 eureka-server、hystrix-thread-context
     2、访问 http://localhost:3333/getUser/5555 注意控制台输出 
-            
+       注意： 必须要写上config文件夹下的几个类 解决了线程传递及并发策略      
 结论：
 ```
 
 # 学到了什么
+- feign.hystrix.enabled 默认是false 所以需要在配置文件中开启
 - hystrix-thread-context 这一章有点难 例子不是很懂 特别是配置类
-- RequestContextHolder 请求上下文容器
+- RequestContextHolder 请求上下文容器 
+    - 如果没有配置线程传递及并发策略这里会取值失败
 - Hystrix默认是 线程池隔离
 - hystrix配置说明
 ![image](https://github.com/keepclimbs/springcloud-notes/blob/master/img/623-4.png)

@@ -4,6 +4,7 @@
 功能：
     (springcloud的 quick-start)
 操作步骤：
+    分别启动eureka-server和eureka-client
     访问 http://localhost:8761 能展示注册的实例
 ```
 ## 关于maven

@@ -37,11 +37,10 @@ public class FirstPreFilter extends ZuulFilter {
 
     @Override
     public Object run() throws ZuulException {
-        System.out.println("这是第一个自定义Zuul Filter！");
         HttpServletRequest request = RequestContext.getCurrentContext().getRequest();
         Enumeration<String> headerNames = request.getHeaderNames();
         while (headerNames.hasMoreElements()) {
-            String name = (String) headerNames.nextElement();
+            String name = headerNames.nextElement();
             String value = request.getHeader(name);
             System.out.println("header: " + name + ":" + value);
         }

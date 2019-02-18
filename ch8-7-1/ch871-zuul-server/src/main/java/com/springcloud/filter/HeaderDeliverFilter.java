@@ -28,7 +28,6 @@ public class HeaderDeliverFilter extends ZuulFilter {
 
 	@Override
 	public Object run() throws ZuulException {
-		System.out.println("HeaderDeliverFilter----------------------------");
 		RequestContext context = RequestContext.getCurrentContext();
 		context.addZuulRequestHeader("result", "to next service");
 		return null;

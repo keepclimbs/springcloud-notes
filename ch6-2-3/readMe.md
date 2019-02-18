@@ -6,21 +6,32 @@
     一：dashboard演示(单个服务监控) // 使用较少 一般是集群监控
         1、分别启动eureka-server 和 eureka-client-provider, eureka-client-consumer, hystrix-dashborad
         2、然后访问 http://localhost:9000/hystrix
-        3、在输入框里面输入http://localhost:9091/actuator/hystrix.stream 然后点击Monitor stream
+        3、在输入框里面输入http://localhost:9091/actuator/hystrix.stream 然后点击Monitor stream (注意：监控的是9091端口的服务)
         4、跳转后页面解释 请看图2
     二：turbine演示(集群服务的监控)
         1、分别启动eureka-server 和 eureka-client-provider, eureka-client-consumer, turbine
-        2、然后访问 http://localhost:9088/hystrix
+        2、然后访问 http://localhost:9088/turbine.stream 
         3、看图片1 然后点击Monitor stream
         4、浏览器多次访问 http://localhost:9091/getProviderData 和http://localhost:8099/getHelloService
         5、跳转后页面解释 请看图1
     三：
         1、分别启动 eureka-server、eureka-client-provider、hystrix-exception-service 
-        2、分别访问hystrix-exception-service 了解HystrixCommand注解 和 ErrorDecoder 配置
+        2、分别访问hystrix-exception-service里面接口测试发生异常是否会走fallback方法
+        3、ErrorDecoder 只有访问服务 ch623-eureka-client-provider 里面接口的时候 才会进FeignErrorDecoder 类的decode方法
+            feign:
+              hystrix:
+                enabled: true
+              client:
+                config:
+                  ch623-eureka-client-provider: # 需要配置的feignName
+                    errorDecoder: com.springcloud.service.dataservice.FeignErrorDecoder
+        4、FeignErrorDecoder 类中有响应参数的获取 (response.body()内容转换为字符串)
     四：
         1、分别启动 eureka-server、eureka-client-provider、hystrix-cache 
         2、分别访问 CacheController了解 hystrix-cache
-           使用场景：暂时不知道
+           重点： 缓存是在同一次请求中 (感觉没啥子用) 
+                 可以使用类开启  (不建议)
+                 也可以使用注解开始
     五：
         1、分别启动 eureka-server、hystrix-collapser
         2、分别访问CollapsingController里面的方法了解 hystrix-collapser, 访问http://localhost:5555/getAnimal
@@ -28,8 +39,9 @@
         注意：
             1、接口返回值必须是Future
             2、接口实现类 配置HystrixCollapser合并请求并配置HystrixProperty合并多少ms内的请求
-            使用场景：暂时不知道
-结论：hystrix-dashborad监控成功
+            使用场景：(高并发场景中)在同一网页中多次请求 可以使用请求合并 并且可以设置合并多少秒时间内的请求
+                      如果不是高并发场景 不建议使用 因为hystrix批处理 collasper也需要时间
+    六： 线程传递及并发策略请看readMe-1.md
 ```
 - 图1
 ![image](https://github.com/keepclimbs/springcloud-notes/blob/master/img/623-2.png)

@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 /**
- * 
+ * 测试异常是否fallback
  */
 @RestController
 public class ExceptionController {
@@ -29,15 +29,29 @@ public class ExceptionController {
         List<String> providerData = providerService.getProviderData();
         return providerData;
     }
-    
+
+    /** 注解方式 使用HystrixCommand */
+    @GetMapping("/getFallbackMethodTest")
+    @HystrixCommand(fallbackMethod="defaultUser")
+    public String getFallbackMethodTest(String id){
+        throw new RuntimeException("getFallbackMethodTest failed");
+    }
+
+    public String defaultUser(String id, Throwable throwable) {
+        log.error(throwable.getMessage());
+        return "this is fallback message";
+    }
+
+    /** 继承方式 使用HystrixCommand */
     @GetMapping("/getProviderServiceCommand")
     public String providerServiceCommand(){
+        // 观察 使用继承的方式 和 注解方式的区别
     	String result = new ProviderServiceCommand("World").execute();
     	return result;
     }
     
 
-    // BadRequestExpcetion 不会进入熔断
+    /** BadRequestExpcetion 不会进入熔断 */
     @GetMapping("/getPSFallbackBadRequestExpcetion")
     public String providerServiceFallback(){
     	String result = new PSFallbackBadRequestExpcetion().execute();
@@ -50,16 +64,4 @@ public class ExceptionController {
     	String result = new PSFallbackOtherExpcetion().execute();
     	return result;
     }
-    
-    @GetMapping("/getFallbackMethodTest")
-    @HystrixCommand(fallbackMethod="defaultUser")
-    public String getFallbackMethodTest(String id){
-    	throw new RuntimeException("getFallbackMethodTest failed");
-    }
-    
-    public String defaultUser(String id, Throwable throwable) {
-    	log.error(throwable.getMessage());
-        return "this is fallback message";
-    }
- 
 }

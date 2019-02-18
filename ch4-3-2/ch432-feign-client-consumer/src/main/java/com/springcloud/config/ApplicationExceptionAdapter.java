@@ -19,5 +19,11 @@ public class ApplicationExceptionAdapter implements WebMvcConfigurer {
 		registry.addViewController("/login").setViewName("login");
 	}
 
+	// 增加拦截器
+	/*@Override
+	public void addInterceptors(InterceptorRegistry registry) {
+		registry.addInterceptor(userContextInterceptor);
+	}*/
+
 
 }

@@ -28,8 +28,7 @@ public class CacheController {
 
     /**
      * @author: song biao wei
-     * @description:
-     *         重写getCacheKey方法缓存请求
+     * @description: 继承HystrixCommand类开启缓存 (不建议) 需要重写getCacheKey方法缓存请求
      *         日志会输出一个 flase 和 一个 true 证明了第二次请求来源于缓存
      * @date: 2019/1/27 17:01
      * @params: [id]
@@ -48,7 +47,7 @@ public class CacheController {
 
     /**
      * @author: song biao wei
-     * @description:
+     * @description: 使用注解开启缓存
      * 输出信息：
      *         {"username":"Toy","password":"123456","age":10}
      *         {"username":"Toy","password":"123456","age":10}

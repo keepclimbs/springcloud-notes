@@ -45,6 +45,11 @@
                <groupId>org.apache.httpcomponents</groupId>
                <artifactId>httpclient</artifactId>
            </dependency>
+           <dependency>
+               <groupId>com.netflix.feign</groupId>
+               <artifactId>feign-httpclient</artifactId>
+               <version>8.17.0</version>
+           </dependency>
        </dependencies>
        
    然后application.yml中开启 (开启 apache 替换 默认的http-client) :
@@ -52,11 +57,42 @@
 ```
 # 问题 
 - ch412-feign-gzip的application.yml中设置了 超时时间 但是实际运行, 没有生效
-- 使用apache的httpclient 替换feign默认的 httpclient 的时候  （书上例子）：为啥要导入这个依赖
+- 使用apache的httpclient 替换feign默认的 httpclient 
 ```
-        <dependency>
-            <groupId>com.netflix.feign</groupId>
-            <artifactId>feign-httpclient</artifactId>
-            <version>8.17.0</version>
-        </dependency>
+使用apache的httpclient替换默认的httpclient 
+    具体配置如下
+    需要增加 apache-httpclient和feign-httpclient依赖
+        详情请看pom文件
+    配置文件中开启httpclient
+        feign:
+            httpclient: 
+              enabled: false
+          
+如果使用okhttp 需要导入okhttp的以来并且禁用httpclient
+    feign:
+        httpclient: 
+          enabled: false
+        okhttp:
+          enabled: true        
 ```
+
+- 设置feign公用配置 优先级高于配置类里面的配置 比如日志配置类里面是FULL 这里是Baisc 最后的结果就是Basic
+```
+feign:
+    client:
+      config:                # 配置feign属性 和 @FeignClient 注解功能相同
+        default:
+          connecTimeout: 1 # 连接超时
+          readTimeout: 1   # 读超时
+          loggerLevel: basic
+```
+- 开启feign日志
+```
+application.yml中增加 （如果不加 就没有日志输出）
+logging:
+     level:
+       com.springcloud.service.HelloFeignService: debug
+并且 增加配置类 HelloFeignServiceConfig
+
+```
+## 使用apache-httpclient 怎么配置连接池大小呢？

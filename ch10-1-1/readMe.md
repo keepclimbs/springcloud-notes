@@ -8,4 +8,4 @@
 ## 实现 config-server第一种方式  使用git配合actuator刷新
 
 
-## 实现 config-server第二种方式  通过git配合spring bus刷新
+## 实现 config-server第二种方式  通过git配合springcloud bus刷新
