@@ -1,4 +1,5 @@
-# 这一章学到了什么
+# 这一章学到了什么 
+## 关于config-server 请看ch10-1 里面的config-server 和 config-client
 ## 关于maven
 - 学会了去掉parent标签内容后, pom文件该怎么修改
 ```
