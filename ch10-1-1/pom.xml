@@ -18,6 +18,7 @@
         <module>ch1011-eureka-client-provider</module>
         <module>ch1011-eureka-client-consumer</module>
         <module>ch1011-config-server</module>
+        <module>ch1011-config-client</module>
     </modules>
 
     <parent>

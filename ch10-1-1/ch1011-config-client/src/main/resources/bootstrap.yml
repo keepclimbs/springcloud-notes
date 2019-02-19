@@ -1,0 +1,8 @@
+spring:
+    cloud:
+        config:
+            label: master              # git分支
+            uri: http://localhost:9090 # config-server访问地址
+            name: config-info          # 代码访问名称为config-info的远程文件 可以有多个 用逗号隔开
+            profile: dev               # 文件的分支
+

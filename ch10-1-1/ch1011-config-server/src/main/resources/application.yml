@@ -5,7 +5,7 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/keepclimbs/springcloud-config-server.git
-          search-paths: config-folder
+          uri: https://github.com/keepclimbs/springcloud-config-server.git # git容器地址
+          search-paths: config-folder    # git容器中的文件夹
   application:
     name: config-server

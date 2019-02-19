@@ -47,7 +47,7 @@ public class CommonConfiguration implements WebMvcConfigurer {
     }
 
     /**
-     * 这个类的作用是 线程变量 上下文传递  详情 请看ch6-2-3代码
+     * 这个类的作用是 线程变量 上下文传递 及并发策略  详情 请看ch6-2-3代码
      * @return
      */
     @Bean

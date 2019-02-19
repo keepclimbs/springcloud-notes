@@ -1,0 +1,15 @@
+server:
+  port: 9091
+
+spring:
+  application:
+    name: ch1011-config-client
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*' # 加载所有的端点/默认只加载了 info / health
+  endpoint:
+    health:
+      show-details: always # 展示详细信息
