@@ -3,6 +3,8 @@ package com.springcloud.filter;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -15,7 +17,7 @@ import static org.springframework.cloud.netflix.zuul.filters.support.FilterConst
  * @return:
  */
 public class SecondPreFilter extends ZuulFilter {
-
+    private static Logger logger = LoggerFactory.getLogger(SecondPreFilter.class);
     @Override
     public String filterType() {
         return PRE_TYPE;
@@ -33,7 +35,7 @@ public class SecondPreFilter extends ZuulFilter {
 
     @Override
     public Object run() throws ZuulException {
-        System.out.println("这是SecondPreFilter！");
+        logger.info("this is second filter");
         //从RequestContext获取上下文
         RequestContext ctx = RequestContext.getCurrentContext();
         //从上下文获取HttpServletRequest

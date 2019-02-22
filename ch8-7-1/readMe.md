@@ -16,6 +16,19 @@ zuul:
 - 修改请求体详情请看 ModifyRequestEntityFilter.java
 # 重试机制 (想想之前的ribbon重试 和这里有啥不同)
 - zuul的重试机制 需要配合spring retry这个依赖
+- 指定某个服务开启重试 zuul.routes.服务名.retryable=true
+```
+还要增加下面的配置 
+zuul:
+  retryable: true #开启重试，D版之后默认为false，需要手动开启
+ribbon:
+#重试机制配置
+  ConnectTimeout: 3000 #请求连接的超时时间   # http客户端为httpclient才生效 默认5秒
+  ReadTimeout: 3000 #请求处理的超时时间      # http客户端为httpclient才生效 默认5秒
+  MaxAutoRetries: 1 # 同一服务器上的最大重试次数（不包括第一次尝试）         推荐设置为0
+  MaxAutoRetriesNextServer: 1 #下一个要重试的服务器的最大数量（不包括第一个服务器） 推荐设置为0
+  OkToRetryOnAllOperations: true # 确定重试 推荐设置为fasle
+```
 # 复习了 swagger 的使用 (详情请看ch4-3-2章节的readMe.md)
 
 # springcloud各个组件之间通信协议是http, http客户端使用的是apache的httpclient (feign默认使用的是 jdk自带的urlConnection)

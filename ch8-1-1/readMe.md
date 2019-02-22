@@ -34,6 +34,9 @@ zuul:
 - 疑惑： 灰度发布要先写好Filter 而且还要手动配置请求的header
 - 增加了三个类 在 eureka-client里面 分别启动不同的配置文件 比命令行跟方便 
 - zuul 项目 增加了一个 Filter 实现了 灰度发布
+- 注意点： 测试灰度发布的时候 需要给GrayFilter加上 注解@Component 让其注入到spring中 
+           因为GrayFilter拦截器增加了自定义元素据 来实现灰度发布, 如果不注释掉会导致
+           测试其他功能的时候zuul找不到路由服务 因为走了GrayFilter的逻辑
 ```
 操作步骤 
     分别启动eureka-server,  zuul , 三个节点的eureka-client
@@ -45,6 +48,9 @@ zuul:
 - 注意点1: springboot的版本不同 文件上传的配置也有些许区别 需要注意 (请看application-uploadFile.yml文件)
 - 注意点2: springcloud F版本之前 上传中文名字的文件会乱码  在请求前面加上 zuul就会好 (官方解释)  http://localhost:5555/zuul/upload 
 
+## zuul限流
+- 新加了一个配置文件和一个controller 
+- 启动后 在单位时间内(就是配置文件中的3秒) 访问超过2次 就会报错 证明限流成功
 ```
 zuul:
   host:

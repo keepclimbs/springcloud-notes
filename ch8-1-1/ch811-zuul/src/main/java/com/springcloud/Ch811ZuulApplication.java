@@ -17,7 +17,9 @@ import org.springframework.stereotype.Component;
 /**
  * @author: song biao wei
  * @date: 2019/1/29 13:23
- * @description:
+ * @description: 测试灰度发布的时候 需要给GrayFilter加上 注解@Compoent 让其注入到spring中
+ *               注释掉的原因是 测试其他功能 会走灰度发布的逻辑 导致zuul找不到路由服务
+ *               因为GrayFilter拦截器增加了自定义元素据 来查找路由服务
  */
 @SpringBootApplication
 @EnableDiscoveryClient

@@ -1,0 +1,26 @@
+server:
+  port: 5555
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.host:127.0.0.1}:${eureka.port:8761}/eureka/
+  instance:
+    prefer-ip-address: true
+zuul:
+  routes:
+    client-a:
+      path: /client/**
+      serviceId: client-a
+  ratelimit:
+    key-prefix: springcloud # 按照粒度拆分的临时变量key前缀
+    enabled: true           # 启用开关
+    repository: IN_MEMORY   # key存储类型, 默认是本地内存, 有多种配置形式
+    behind-proxy: true      # 表示代理之后
+    default-policy:         # 全局限流策略 可单独细化到服务粒度
+      limit: 2              # 单位时间内请求量 单位时间就是refresh-interval的value
+      quota: 1              # 单位时间内的请求时间限制
+      refresh-interval: 3   # 单位时间
+      type:
+        - user              # 可指定用户粒度
+        - origin            # 可指定角色粒度
+        - url               # 可指定url粒度

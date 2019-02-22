@@ -3,6 +3,8 @@ package com.springcloud.filter;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import static org.springframework.cloud.netflix.zuul.filters.support.FilterConstants.POST_TYPE;
 /**
@@ -13,6 +15,7 @@ import static org.springframework.cloud.netflix.zuul.filters.support.FilterConst
  * @return:
  */
 public class PostFilter extends ZuulFilter {
+    private static Logger logger = LoggerFactory.getLogger(PostFilter.class);
     
     @Override
     public String filterType() {
@@ -31,7 +34,7 @@ public class PostFilter extends ZuulFilter {
 
     @Override
     public Object run() throws ZuulException {
-        System.out.println("这是PostFilter！");
+        logger.info("this is postFilter");
         //从RequestContext获取上下文
         RequestContext ctx = RequestContext.getCurrentContext();
         //处理返回中文乱码

@@ -3,6 +3,8 @@ package com.springcloud.filter;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import static org.springframework.cloud.netflix.zuul.filters.support.FilterConstants.ERROR_TYPE;
 
@@ -14,6 +16,8 @@ import static org.springframework.cloud.netflix.zuul.filters.support.FilterConst
  * @return:
  */
 public class ErrorFilter extends ZuulFilter {
+
+    private static Logger logger = LoggerFactory.getLogger(ErrorFilter.class);
     
     @Override
     public String filterType() {
@@ -32,9 +36,8 @@ public class ErrorFilter extends ZuulFilter {
 
     @Override
     public Object run() throws ZuulException {
+        logger.info("this is errorFilter");
         RequestContext ctx = RequestContext.getCurrentContext();
-        System.out.println("这是ErrorFilter");
-        
         return null;
     }
 

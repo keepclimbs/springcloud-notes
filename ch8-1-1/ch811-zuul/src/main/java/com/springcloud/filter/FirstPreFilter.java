@@ -2,6 +2,8 @@ package com.springcloud.filter;
 
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.exception.ZuulException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import static org.springframework.cloud.netflix.zuul.filters.support.FilterConstants.PRE_TYPE;
 /**
@@ -12,6 +14,7 @@ import static org.springframework.cloud.netflix.zuul.filters.support.FilterConst
  * @return:
  */
 public class FirstPreFilter extends ZuulFilter {
+    private static Logger logger = LoggerFactory.getLogger(FirstPreFilter.class);
     
     @Override
     public String filterType() {
@@ -30,7 +33,7 @@ public class FirstPreFilter extends ZuulFilter {
 
     @Override
     public Object run() throws ZuulException {
-        System.out.println("这是第一个自定义Zuul Filter！");
+        logger.info("this is firstPreFilter");
         return null;
     }
 }
