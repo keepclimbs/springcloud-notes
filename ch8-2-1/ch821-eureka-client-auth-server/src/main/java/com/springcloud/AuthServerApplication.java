@@ -13,7 +13,7 @@ import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 /**
  * @author: song biao wei
  * @date: 2019/1/29 17:55
- * @description:
+ * @description: 认证授权中心
  */
 @SpringBootApplication
 @EnableDiscoveryClient

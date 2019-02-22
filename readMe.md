@@ -21,7 +21,7 @@
 - 第十学 hystrix-thread-context 线程传递及并发策略及hystrix总结 [笔记](https://github.com/keepclimbs/springcloud-notes/tree/master/ch6-2-3/readMe-1.md)
 # zuul学习
 - 第十一学 zuul的Filter链学习 [笔记](https://github.com/keepclimbs/springcloud-notes/tree/master/ch8-1-1/readMe.md)
-## 第十一学 zuul的权限集成学习 暂不学习 [笔记](https://github.com/keepclimbs/springcloud-notes/tree/master/ch8-2-1/readMe.md)
+## 第十一学 zuul的权限集成(Auth2.0 + JWT) 暂时只能跑起来 具体使用细节还需要加强 [笔记](https://github.com/keepclimbs/springcloud-notes/tree/master/ch8-2-1/readMe.md)
 ## 第十一学 zuul的动态路由基于DB 后面还有二代网关gateway的动态路由  暂不学习 
 - 第十二学 zuul文件上传 zuul限流   [笔记(一个疑问)](https://github.com/keepclimbs/springcloud-notes/tree/master/ch8-1-1/readMe.md)
 - 第十二学 灰度发布  [笔记](https://github.com/keepclimbs/springcloud-notes/tree/master/ch8-1-1/readMe.md)
