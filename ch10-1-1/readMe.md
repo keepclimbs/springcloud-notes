@@ -37,5 +37,5 @@
 4、利用postman post方式请求 http://localhost:9091/actuator/refresh 来手动刷新 -- 是 config-client端刷新
 5、再次访问 访问 http://localhost:9091/getConfigValue  发现配置已经修改
 ```
-
+- client端自动刷新 增加一个定时器就可以了 (实现类: RefreshGitConfigScheDule)
 ## 实现 config-server第二种方式  通过git配合springcloud bus刷新 -- 是 config-server端刷新
