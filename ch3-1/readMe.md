@@ -93,7 +93,8 @@
     - clean     清理上次编译后的文件夹
     - default   真正构建时候的所有步骤 ( validate -> deploy )
     - site      建立和发布项目站点
-
+- maven插件作用 <artifactId>maven-surefire-plugin</artifactId> 
+    - 默认绑定maven执行的test阶段
 - ch3-1 重新用回了 parent标签 因为比较简洁  
 ## 关于springcloud
 ```
