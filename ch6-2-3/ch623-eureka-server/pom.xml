@@ -17,4 +17,74 @@
         </dependency>
     </dependencies>
 
+    <build>
+        <plugins>
+            <!-- 作用：构建springboot项目  -->
+            <!--<plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.0.3.RELEASE</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                &lt;!&ndash; 配置编译插件 jdk版本为1.8 &ndash;&gt;
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>-->
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.6</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <!-- 程序主入口类 -->
+                            <mainClass>com.springcloud.Ch623EurekaServerApplication</mainClass>
+                            <!-- 增加classpath -->
+                            <addClasspath>true</addClasspath>
+                            <!-- classpath路径前缀 -->
+                            <classpathPrefix>lib/</classpathPrefix>
+                        </manifest>
+                        <manifestEntries>
+                            <Class-Path>./</Class-Path>
+                        </manifestEntries>
+                    </archive>
+                    <excludes>
+                        <!--排除某些配置文件，放在jar的外面，方面修改-->
+                        <exclude>**/*.yml</exclude>
+                        <exclude>**/*.properties</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <!-- not append assembly id in release file name -->
+                    <appendAssemblyId>false</appendAssemblyId>
+                    <descriptors>
+                        <descriptor>src/main/build/package.xml</descriptor>
+                    </descriptors>
+                </configuration>
+                <executions>
+                    <!-- 配置执行器 -->
+                    <execution>
+                        <id>make-assembly</id>
+                        <!-- 绑定到生命周期 -->
+                        <phase>package</phase>
+                        <goals>
+                            <!-- 仅执行一次 -->
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+    </build>
+
 </project>
