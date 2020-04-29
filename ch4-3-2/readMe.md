@@ -19,6 +19,9 @@
 - 如何配置swagger
 - 学会了使用feign的请求拦截器RequestIntercepter来处理feign的get请求传POJO
     - 具体实现请看 FeignRequestInterceptor (递归jsonNode感觉很高级)
+    - @SpringQueryMap也可以,要求openfeign版本需要高点
+        @RequestMapping(value = "/user/add", method = RequestMethod.GET)
+        String addUser(@SpringQueryMap User user);
 - 学会了使用feign的请求拦截器FeignTokenInterceptor来处理token的传递
 - 熟悉了服务间如何通过feign进行调用
 - springboot的logback日志配置

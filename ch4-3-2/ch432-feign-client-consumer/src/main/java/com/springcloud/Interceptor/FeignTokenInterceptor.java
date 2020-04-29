@@ -25,6 +25,7 @@ public class FeignTokenInterceptor implements RequestInterceptor {
         }
         //将获取Token对应的值往下面传
         requestTemplate.header("oauthToken", getHeaders(getHttpServletRequest()).get("oauthToken"));
+
     }
 
     private HttpServletRequest getHttpServletRequest() {
@@ -48,6 +49,8 @@ public class FeignTokenInterceptor implements RequestInterceptor {
             String value = request.getHeader(key);
             map.put(key, value);
         }
+        // todo 假如有token
+        map.put("oauthToken", "i am token");
         return map;
     }
 }

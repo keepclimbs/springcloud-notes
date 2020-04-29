@@ -4,6 +4,11 @@ import feign.Logger;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * 1、最好给类HelloFeignServiceConfig放到 spring上下文之外，不然就对所有的feignclient使用（方式1），
+ * 想要控制细粒度就不能加 @Configuration注解
+ * 2、全局的日志配置方式2 @EnableFeignClients(defaultConfiguration = HelloFeignServiceConfig.class)
+ */
 @Configuration
 public class HelloFeignServiceConfig {
 

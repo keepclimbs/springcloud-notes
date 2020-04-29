@@ -60,6 +60,7 @@ public class FeignRequestInterceptor implements RequestInterceptor {
                 values = new ArrayList<>();
                 queries.put(path, values);
             }
+            System.out.println(jsonNode.asText());
             values.add(jsonNode.asText());
             return;
         }

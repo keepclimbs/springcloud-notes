@@ -82,7 +82,7 @@
 feign:
     client:
       config:                # 配置feign属性 和 @FeignClient 注解功能相同
-        default:
+        default:             # default代表默认全局，改成应用的name就是针对某个应用
           connecTimeout: 1 # 连接超时
           readTimeout: 1   # 读超时
           loggerLevel: basic

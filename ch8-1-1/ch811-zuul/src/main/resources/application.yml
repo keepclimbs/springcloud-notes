@@ -23,6 +23,8 @@ zuul:
     client-a:
       path: /client/**
       serviceId: client-a
+#      跳过前缀, 为true跳过前缀， 没有测试过
+#      stripPrefix: false
   ribbon:
     eager-load:
       enabled: true
